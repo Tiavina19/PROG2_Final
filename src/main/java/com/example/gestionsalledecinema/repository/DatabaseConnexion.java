@@ -12,9 +12,9 @@ public class DatabaseConnexion {
     @Bean
     public static Connection getConnection() throws SQLException{
         return DriverManager.getConnection(
-                "jdbc:postgresql://localhost:5432/gestion_cinema",
-                "postgres",
-                "tiavina"
+                System.getenv("db_url"),
+                System.getenv("db_user"),
+                System.getenv("db_password")
         );
     }
 
