@@ -17,7 +17,7 @@ public class ReservationLiaison implements Reservation_DAO{
     }
     @Override
     public void insert(Reservation reservation) {
-        String sql = "INSERT INTO Reservation (id_reservation, nombre_place) VALUES (?,?)";
+        String sql = "INSERT INTO Reservation (id_reservation, nombre_places) VALUES (?,?)";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setInt(1, reservation.getId_reservation());
             statement.setInt(2, reservation.getNombre_places());
@@ -50,7 +50,7 @@ public class ReservationLiaison implements Reservation_DAO{
     @Override
     public List<Reservation> findById(int id) throws SQLException {
         List<Reservation> reservation = new ArrayList<>();
-        String sql = "SELECT * FROM Reservation WHERE id_reservation = ?";
+        String sql = "SELECT * FROM reservations WHERE id_reservation = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
             preparedStatement.setInt(1,id);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -58,13 +58,13 @@ public class ReservationLiaison implements Reservation_DAO{
             while(resultSet.next()){
                 reservation.add(new Reservation(
                         resultSet.getInt("id_reservation"),
-                        resultSet.getInt("nombre_place")
+                        resultSet.getInt("nombre_places")
 
                 ));
             }
 
         }catch (SQLException ex){
-            throw new RuntimeException("Erreur de selection");
+            throw new RuntimeException(ex.getMessage());
         }
 
         return reservation;
@@ -72,7 +72,7 @@ public class ReservationLiaison implements Reservation_DAO{
 
     @Override
     public void deleteId(int id) throws SQLException {
-        String sql = "DELETE FROM Reservation WHERE id_reservation = ?";
+        String sql = "DELETE FROM reservations WHERE id_reservation = ?";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setInt(1, id);
             statement.executeUpdate();
@@ -83,7 +83,7 @@ public class ReservationLiaison implements Reservation_DAO{
 
     @Override
     public void update(int id, Reservation reservation) throws SQLException {
-        String sql = "UPDATE Reservation  SET nombre_place = ?, WHERE id_reservation = ?";
+        String sql = "UPDATE reservations  SET nombre_places = ?, WHERE id_reservation = ?";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
 
             statement.setInt(1,reservation.getNombre_places());

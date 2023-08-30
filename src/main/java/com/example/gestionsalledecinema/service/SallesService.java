@@ -1,6 +1,7 @@
 package com.example.gestionsalledecinema.service;
 
 import com.example.gestionsalledecinema.model.Salles;
+import com.example.gestionsalledecinema.model.Seances;
 import com.example.gestionsalledecinema.repository.Salles_DAO;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,10 @@ public class SallesService {
 
     public SallesService(Salles_DAO repository){
         this.repository = repository;
+    }
+
+    public void insertData(Salles salles) throws SQLException{
+        repository.insert(salles);
     }
 
     public List<Salles> findAllSalles() throws SQLException {

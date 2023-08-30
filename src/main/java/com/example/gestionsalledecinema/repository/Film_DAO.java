@@ -8,7 +8,7 @@ import java.util.List;
 public interface Film_DAO {
     void insert (Film film);
     List<Film> findAll() throws SQLException;
-    List<Film> findById(int id) throws SQLException;
+     List<Film> findById(int id) throws SQLException;
     void deleteId(int id) throws  SQLException;
     void update(int id, Film film) throws SQLException;
 }
