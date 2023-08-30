@@ -83,7 +83,7 @@ public class ReservationLiaison implements Reservation_DAO{
 
     @Override
     public void update(int id, Reservation reservation) throws SQLException {
-        String sql = "UPDATE reservations  SET nombre_places = ?, WHERE id_reservation = ?";
+        String sql = "UPDATE reservations  SET nombre_places = ? WHERE id_reservation = ?";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
 
             statement.setInt(1,reservation.getNombre_places());

@@ -93,7 +93,7 @@ public class FilmLiaison implements Film_DAO{
 
     @Override
     public void update(int id, Film film) throws SQLException {
-        String sql = "UPDATE Film SET titre = ?, realisateur = ?, duree = ?, genre = ?, WHERE id_film = ?";
+        String sql = "UPDATE Film SET titre = ?, realisateur = ?, duree = ?, genre = ? WHERE id_film = ?";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setString(1,film.getTitre());
             statement.setString(2, film.getRealisateur ());

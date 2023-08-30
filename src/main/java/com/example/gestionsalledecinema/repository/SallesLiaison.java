@@ -90,7 +90,7 @@ public class SallesLiaison implements Salles_DAO {
 
     @Override
     public void update(int id, Salles salles) throws SQLException {
-        String sql = "UPDATE Salles SET nom = ?, capacite = ?, type_projection = ?, WHERE id_salle = ?";
+        String sql = "UPDATE Salles SET nom = ?, capacite = ?, type_projection = ? WHERE id_salle = ?";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setString(1, salles.getNom());
             statement.setInt(2, salles.getCapacite());
