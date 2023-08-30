@@ -20,17 +20,15 @@ public class ClientLiaison implements Client_DAO {
     }
 
     @Override
-    public void insert(Clients clients) {
+    public void insert(Clients clients) throws SQLException{
         String sql = "INSERT INTO Clients (id_clients, nom, prenom, email, numero_telephone) VALUES (?,?,?,?,?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, clients.getId_clients());
             statement.setString(2, clients.getNom());
             statement.setString(3, clients.getPrenom());
             statement.setString(4, clients.getEmail());
-            statement.setInt(5, clients.getNumero_telephone());
+            statement.setString(5, clients.getNumero_telephone());
             statement.executeUpdate();
-        } catch (SQLException ex) {
-            throw new RuntimeException("Erreur d'insert");
         }
 
     }
@@ -48,12 +46,10 @@ public class ClientLiaison implements Client_DAO {
                         resultSet.getString("nom"),
                         resultSet.getString("prenom"),
                         resultSet.getString("email"),
-                        resultSet.getInt("numero_telephone")
+                        resultSet.getString("numero_telephone")
                 ));
             }
 
-        } catch (SQLException ex) {
-            throw new RuntimeException("Erreur de recherche");
         }
 
         return allClients;
@@ -73,7 +69,7 @@ public class ClientLiaison implements Client_DAO {
                         resultSet.getString("nom"),
                         resultSet.getString("prenom"),
                         resultSet.getString("email"),
-                        resultSet.getInt("numero_telephone")
+                        resultSet.getString("numero_telephone")
 
                 ));
             }
@@ -103,11 +99,9 @@ public class ClientLiaison implements Client_DAO {
             statement.setString(1, clients.getNom());
             statement.setString(2, clients.getPrenom());
             statement.setString(3, clients.getEmail());
-            statement.setInt(4, clients.getNumero_telephone());
+            statement.setString(4, clients.getNumero_telephone());
             statement.setInt(5, id);
             statement.executeUpdate();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
         }
     }
 

@@ -20,7 +20,7 @@ public class ReservationLiaison implements Reservation_DAO{
         String sql = "INSERT INTO Reservation (id_reservation, nombre_place) VALUES (?,?)";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setInt(1, reservation.getId_reservation());
-            statement.setInt(2, reservation.getNombre_place());
+            statement.setInt(2, reservation.getNombre_places());
             statement.executeUpdate();
         }catch (SQLException ex){
             throw new RuntimeException("Erreur d'insert");
@@ -30,20 +30,18 @@ public class ReservationLiaison implements Reservation_DAO{
     @Override
     public List<Reservation> findAll() throws SQLException {
         List<Reservation> allReservation = new ArrayList<>();
-        String sql = "SELECT * FROM Reservation";
+        String sql = "SELECT * FROM reservations";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
                 allReservation.add(new Reservation(
                         resultSet.getInt("id_reservation"),
-                        resultSet.getInt("nombre_place")
+                        resultSet.getInt("nombre_places")
 
                 ));
             }
 
-        }catch (SQLException ex){
-            throw new RuntimeException("Erreur de recherche");
         }
 
         return allReservation;
@@ -88,7 +86,7 @@ public class ReservationLiaison implements Reservation_DAO{
         String sql = "UPDATE Reservation  SET nombre_place = ?, WHERE id_reservation = ?";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
 
-            statement.setInt(1,reservation.getNombre_place ());
+            statement.setInt(1,reservation.getNombre_places());
             statement.setInt(2,reservation.getId_reservation ());
             statement.executeUpdate();
 

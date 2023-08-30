@@ -1,0 +1,10 @@
+insert into Seances (id_seance, id_film, id_salle, date_heure, prix_billet) values (1, 1, 1, '5/11/2023', 5);
+insert into Seances (id_seance, id_film, id_salle, date_heure, prix_billet) values (2, 2, 2, '7/10/2023', 5);
+insert into Seances (id_seance, id_film, id_salle, date_heure, prix_billet) values (3, 3, 3, '11/2/2022', 9);
+insert into Seances (id_seance, id_film, id_salle, date_heure, prix_billet) values (4, 4, 4, '5/05/2023', 9);
+insert into Seances (id_seance, id_film, id_salle, date_heure, prix_billet) values (5, 5, 5, '10/12/2022', 10);
+insert into Seances (id_seance, id_film, id_salle, date_heure, prix_billet) values (6, 6, 6, '6/11/2023', 9);
+insert into Seances (id_seance, id_film, id_salle, date_heure, prix_billet) values (7, 7, 7, '9/1/2022', 5);
+insert into Seances (id_seance, id_film, id_salle, date_heure, prix_billet) values (8, 8, 8, '3/06/2023', 10);
+insert into Seances (id_seance, id_film, id_salle, date_heure, prix_billet) values (9, 9, 9, '2/4/2023', 9);
+insert into Seances (id_seance, id_film, id_salle, date_heure, prix_billet) values (10, 10, 10, '3/11/2023', 9);

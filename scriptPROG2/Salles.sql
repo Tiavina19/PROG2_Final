@@ -1,0 +1,10 @@
+insert into Salles (id_salle, nom, capacite, type_projection) values (1, 'dg health triacting', 48, 2);
+insert into Salles (id_salle, nom, capacite, type_projection) values (2, 'Mary Kay TimeWise Age Fighting Moisturizer SPF 30', 63, 3);
+insert into Salles (id_salle, nom, capacite, type_projection) values (3, 'Lisinopril', 65, 3);
+insert into Salles (id_salle, nom, capacite, type_projection) values (4, 'Doxorubicin Hydrochloride', 19, 3);
+insert into Salles (id_salle, nom, capacite, type_projection) values (5, 'TICE BCG', 71, 3);
+insert into Salles (id_salle, nom, capacite, type_projection) values (6, 'Xenazine', 96, 3);
+insert into Salles (id_salle, nom, capacite, type_projection) values (7, 'Sodium Sulfacetamide, Sulfur', 71, 2);
+insert into Salles (id_salle, nom, capacite, type_projection) values (8, 'Venlafaxine Hydrochloride', 74, 3);
+insert into Salles (id_salle, nom, capacite, type_projection) values (9, 'Celazome Fade Shades Lightening Cream w/ Glycolic Acid', 39, 2);
+insert into Salles (id_salle, nom, capacite, type_projection) values (10, 'Haloperidol', 79, 3);

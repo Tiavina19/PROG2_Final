@@ -14,5 +14,5 @@ public class Clients {
     private String nom;
     private String prenom;
     private String email;
-    private Integer numero_telephone;
+    private String numero_telephone;
 }

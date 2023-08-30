@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface Seances_DAO {
-    void insert (Seances seances);
+    void insert (Seances seances) throws SQLException;
     List<Seances> findAll() throws SQLException;
     List<Seances> findById(int id) throws SQLException;
     void deleteId(int id) throws  SQLException;

@@ -1,0 +1,10 @@
+insert into film (id_film, titre, realisateur, duree, genre) values (1, 'First Daughter', 'Muxo', 1, 'Comedy|Romance|Thriller');
+insert into film (id_film, titre, realisateur, duree, genre) values (2, 'Cutie Honey', 'Quatz', 2, 'Action');
+insert into film (id_film, titre, realisateur, duree, genre) values (3, 'Sherlock Holmes', 'Tagtune', 3, 'Action|Crime|Mystery|Thriller');
+insert into film (id_film, titre, realisateur, duree, genre) values (4, 'Love and Death on Long Island', 'Kaymbo', 4, 'Comedy|Drama');
+insert into film (id_film, titre, realisateur, duree, genre) values (5, 'Mahoney''s Last Stand', 'Oyonder', 5, 'Drama');
+insert into film (id_film, titre, realisateur, duree, genre) values (6, 'Violent City (Family, The) (Città violenta)', 'Voolia', 6, 'Action|Crime|Drama');
+insert into film (id_film, titre, realisateur, duree, genre) values (7, 'Brother 2 (Brat 2)', 'Blognation', 7, 'Crime|Drama');
+insert into film (id_film, titre, realisateur, duree, genre) values (8, 'Alien Autopsy', 'Edgewire', 8, 'Comedy|Sci-Fi');
+insert into film (id_film, titre, realisateur, duree, genre) values (9, 'Quatermass and the Pit', 'Buzzbean', 9, 'Horror|Sci-Fi');
+insert into film (id_film, titre, realisateur, duree, genre) values (10, 'Apartment 1303', 'Wordware', 10, 'Horror');

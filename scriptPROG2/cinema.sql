@@ -1,6 +1,7 @@
+CREATE DATABASE gestion_cinema;
+\c gestion_cinema
 
 
-/* Table "Film" */
 CREATE TABLE film (
     id_film INT PRIMARY KEY,
     titre VARCHAR(255) NOT NULL,
@@ -9,7 +10,7 @@ CREATE TABLE film (
     genre VARCHAR(100)
 );
 
-/* Table "Salles" */
+
 CREATE TABLE Salles (
     id_salle INT PRIMARY KEY,
     nom VARCHAR(255) NOT NULL,
@@ -17,7 +18,7 @@ CREATE TABLE Salles (
     type_projection VARCHAR(100)
 );
 
-/* Table "Seances" */
+
 CREATE TABLE Seances (
     id_seance INT PRIMARY KEY,
     id_film INT REFERENCES film(id_film),
@@ -26,7 +27,7 @@ CREATE TABLE Seances (
     prix_billet float
 );
 
-/* Table "Clients" */
+
 CREATE TABLE Clients (
     id_clients INT PRIMARY KEY,
     nom VARCHAR(255),
@@ -35,7 +36,7 @@ CREATE TABLE Clients (
     numero_telephone VARCHAR(20)
 );
 
-/* Table "Reservations" */
+
 CREATE TABLE Reservations (
     id_reservation INT PRIMARY KEY,
     id_clients INT REFERENCES Clients(id_clients),

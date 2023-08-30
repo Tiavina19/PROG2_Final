@@ -10,6 +10,6 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Reservation {
     private int id_reservation;
-    private int nombre_place;
+    private int nombre_places;
 
 }

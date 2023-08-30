@@ -13,7 +13,7 @@ public class SeancesLiaison implements Seances_DAO {
         this.connection = connection;
     }
     @Override
-    public void insert(Seances seances) {
+    public void insert(Seances seances) throws SQLException{
         String sql = "INSERT INTO Seances (id_seance, date_heure,prix_billet) VALUES (?,?,?)";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setInt(1, seances.getId_seance());
@@ -21,29 +21,25 @@ public class SeancesLiaison implements Seances_DAO {
             statement.setFloat(3, seances.getPrix_billet());
 
             statement.executeUpdate();
-        }catch (SQLException ex){
-            throw new RuntimeException("Erreur d'insert");
         }
     }
 
     @Override
     public List<Seances> findAll() throws SQLException {
         List<Seances> allSeances = new ArrayList<>();
-        String sql = "SELECT * FROM Seances";
+        String sql = "SELECT * FROM seances";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while(resultSet.next()){
                 allSeances.add(new Seances(
-                        resultSet.getInt("id_sseance"),
+                        resultSet.getInt("id_seance"),
                         resultSet.getDate("date_heure").toLocalDate(),
                         resultSet.getFloat("prix_billet")
 
                 ));
             }
 
-        }catch (SQLException ex){
-            throw new RuntimeException("Erreur de recherche");
         }
 
         return allSeances;
