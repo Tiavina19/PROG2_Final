@@ -1,0 +1,561 @@
+openapi: 3.0.0
+info:
+  title: API de Gestion Salle de cinéma
+  version: 1.0.0
+
+tags:
+  - name: Films
+  - name: Salles
+  - name: Seances
+  - name: Clients
+  - name: Reservation
+paths:
+  /films:
+    get:
+      tags:
+        - Films
+      summary: Récupérer tous les films
+      responses:
+        "200":
+          description: Succès
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Film"
+
+  /films/{filmId}:
+    get:
+      tags:
+        - Films
+      summary: Récupérer un film par ID
+      parameters:
+        - name: filmId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Succès
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Film"
+        "404":
+          description: Film non trouvé
+
+    put:
+      tags:
+        - Films
+      summary: Mettre à jour un film par ID
+      parameters:
+        - name: filmId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Film"
+      responses:
+        "200":
+          description: Mise à jour réussie
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Film"
+        "404":
+          description: Film non trouvé
+
+    post:
+      tags:
+        - Films
+      summary: Créer un nouveau film
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Film"
+      responses:
+        "201":
+          description: Créé avec succès
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Film"
+
+    delete:
+      tags:
+        - Films
+      summary: Supprimer un film par ID
+      parameters:
+        - name: filmId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Supprimé avec succès
+        "404":
+          description: Film non trouvé
+
+  /salles:
+    get:
+      tags:
+        - Salles
+      summary: Récupérer toutes les salles
+      responses:
+        "200":
+          description: Succès
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Salle"
+
+    post:
+      tags:
+        - Salles
+      summary: Créer une nouvelle salle
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Salle"
+      responses:
+        "201":
+          description: Créé avec succès
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Salle"
+
+  /salles/{salleId}:
+    get:
+      tags:
+        - Salles
+      summary: Récupérer une salle par ID
+      parameters:
+        - name: salleId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Succès
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Salle"
+        "404":
+          description: Salle non trouvée
+
+    put:
+      tags:
+        - Salles
+      summary: Mettre à jour une salle par ID
+      parameters:
+        - name: salleId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Salle"
+      responses:
+        "200":
+          description: Mise à jour réussie
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Salle"
+        "404":
+          description: Salle non trouvée
+
+    delete:
+      tags:
+        - Salles
+      summary: Supprimer une salle par ID
+      parameters:
+        - name: salleId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Supprimée avec succès
+        "404":
+          description: Salle non trouvée
+
+  /seances:
+    get:
+      tags:
+        - Seances
+      summary: Récupérer toutes les séances
+      responses:
+        "200":
+          description: Succès
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Seance"
+
+    post:
+      tags:
+        - Seances
+      summary: Créer une nouvelle séance
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Seance"
+      responses:
+        "201":
+          description: Créée avec succès
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Seance"
+
+  /seances/{seanceId}:
+    get:
+      tags:
+        - Seances
+      summary: Récupérer une séance par ID
+      parameters:
+        - name: seanceId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Succès
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Seance"
+        "404":
+          description: Séance non trouvée
+
+    put:
+      tags:
+        - Seances
+      summary: Mettre à jour une séance par ID
+      parameters:
+        - name: seanceId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Seance"
+      responses:
+        "200":
+          description: Mise à jour réussie
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Seance"
+        "404":
+          description: Séance non trouvée
+
+    delete:
+      tags:
+        - Seances
+      summary: Supprimer une séance par ID
+      parameters:
+        - name: seanceId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Supprimée avec succès
+        "404":
+          description: Séance non trouvée
+
+  /clients:
+    get:
+      tags:
+        - Clients
+      summary: Récupérer tous les clients
+      responses:
+        "200":
+          description: Succès
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Client"
+
+    post:
+      tags:
+        - Clients
+      summary: Créer un nouveau client
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Client"
+      responses:
+        "201":
+          description: Créé avec succès
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Client"
+
+  /clients/{clientId}:
+    get:
+      tags:
+        - Clients
+      summary: Récupérer un client par ID
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Succès
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Client"
+        "404":
+          description: Client non trouvé
+
+    put:
+      tags:
+        - Clients
+      summary: Mettre à jour un client par ID
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Client"
+      responses:
+        "200":
+          description: Mise à jour réussie
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Client"
+        "404":
+          description: Client non trouvé
+
+    delete:
+      tags:
+        - Clients
+      summary: Supprimer un client par ID
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Supprimé avec succès
+        "404":
+          description: Client non trouvé
+
+  /reservations:
+    get:
+      tags:
+        - Reservation
+      summary: Récupérer toutes les réservations
+      responses:
+        "200":
+          description: Succès
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Reservation"
+
+    post:
+      tags:
+        - Reservation
+      summary: Créer une nouvelle réservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Reservation"
+      responses:
+        "201":
+          description: Créée avec succès
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Reservation"
+
+  /reservations/{reservationId}:
+    get:
+      tags:
+        - Reservation
+      summary: Récupérer une réservation par ID
+      parameters:
+        - name: reservationId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Succès
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Reservation"
+        "404":
+          description: Réservation non trouvée
+
+    put:
+      tags:
+        - Reservation
+      summary: Mettre à jour une réservation par ID
+      parameters:
+        - name: reservationId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Reservation"
+      responses:
+        "200":
+          description: Mise à jour réussie
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Reservation"
+        "404":
+          description: Réservation non trouvée
+
+    delete:
+      tags:
+        - Reservation
+      summary: Supprimer une réservation par ID
+      parameters:
+        - name: reservationId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Supprimée avec succès
+        "404":
+          description: Réservation non trouvée
+
+components:
+  schemas:
+    Film:
+      type: object
+      properties:
+        id_film:
+          type: integer
+        titre:
+          type: string
+        realisateur:
+          type: string
+        duree:
+          type: integer
+        genre:
+          type: string
+
+    Salle:
+      type: object
+      properties:
+        id_salle:
+          type: integer
+        nom:
+          type: string
+        capacite:
+          type: integer
+        type_projection:
+          type: string
+
+    Seance:
+      type: object
+      properties:
+        id_seance:
+          type: integer
+        id_film:
+          type: integer
+        id_salle:
+          type: integer
+        date_heure:
+          type: string
+          format: date-time
+        prix_billet:
+          type: number
+
+    Client:
+      type: object
+      properties:
+        id_clients:
+          type: integer
+        nom:
+          type: string
+        prenom:
+          type: string
+        email:
+          type: string
+          format: email
+        numero_telephone:
+          type: string
+
+    Reservation:
+      type: object
+      properties:
+        id_reservation:
+          type: integer
+        id_clients:
+          type: integer
+        id_seance:
+          type: integer
+        nombre_places:
+          type: integer
