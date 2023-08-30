@@ -38,4 +38,4 @@ L'application de gestion de salle de cinéma permet d'effectuer les opérations 
 - Supprimer les informations des clients.
 - Annuler des réservations et libérer les places réservées.
 
-## Lien de l'API :
+## Lien de l'API : https://petstore.swagger.io/?url=https://raw.githubusercontent.com/Tiavina19/PROG2_Final/main/scriptPROG2/prog2Api.yaml
